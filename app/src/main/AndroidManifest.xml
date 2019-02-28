@@ -9,10 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".CatsEasterEgg"
-            android:label="@string/title_activity_cats_easter_egg"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".CatsEasterEgg"></activity>
         <activity android:name=".Goals" />
         <activity android:name=".HelpOthers" />
         <activity android:name=".GetHelp" />
