@@ -26,6 +26,7 @@
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="none"
+        android:onClick="toHome"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6"
