@@ -1,7 +1,9 @@
 package com.example.nuj;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.nuj.ui.about.AboutFragment;
 
@@ -16,5 +18,10 @@ public class About extends AppCompatActivity {
                     .replace(R.id.container, AboutFragment.newInstance())
                     .commitNow();
         }
+    }
+
+    public void toHome(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
