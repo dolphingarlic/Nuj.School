@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, About.class);
         startActivity(intent);
     }
+
+    public void toHelpOthers(View view){
+        Intent intent = new Intent(this, HelpOthers.class);
+        startActivity(intent);
+    }
 }
