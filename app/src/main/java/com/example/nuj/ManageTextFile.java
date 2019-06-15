@@ -33,14 +33,12 @@ public class ManageTextFile {
         return joinedDate;
     }
 
-    public void saveInfo(String name, Date birthday, Date joinedDate, Context ctx) {
+    public void saveInfo(String name, String birthday, String joinedDate, Context ctx) {
 
         try {
-            Writer writeToFile = new FileWriter(new File(NUJ_USER_TXT));
-
-            writeToFile.write(name + "#" + birthday.toString() + "#" + joinedDate.toString());
+            Writer writeToFile = new FileWriter(new File(ctx.getFilesDir(), NUJ_USER_TXT));
+            writeToFile.write(name + "#" + birthday + "#" + joinedDate);
             writeToFile.close();
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -48,10 +46,10 @@ public class ManageTextFile {
         }
     }
 
-    public void readUserInfo(Context context) {
+    public void readUserInfo(Context ctx) {
 
         try {
-            Scanner readFromFile = new Scanner(new File(NUJ_USER_TXT)).useDelimiter("#");
+            Scanner readFromFile = new Scanner(new File(ctx.getFilesDir(), NUJ_USER_TXT)).useDelimiter("#");
 
             while (readFromFile.hasNext()){
                 userName = readFromFile.next();
@@ -67,7 +65,7 @@ public class ManageTextFile {
     }
 
     private Date getDate(String day) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
         Date date = new Date();
         try {
             date = dateFormat.parse(day);

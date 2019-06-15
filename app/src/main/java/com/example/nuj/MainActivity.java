@@ -4,10 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
+import android.widget.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,13 +18,21 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnHelpOthers;
     private ImageButton btnGetHelp;
     private ImageButton btnAbout;
+    private TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         ManageTextFile textFile = new ManageTextFile();
+        textFile.readUserInfo(this);
         ManageDatabase db = new ManageDatabase(this);
-        User user = new User(textFile.getUserName(), textFile.getBirthday(), textFile.getJoinedDate(), db.allGoals(), db.completedGoals(), db.ongoingGoals());
+        User user = new User(
+                textFile.getUserName(),
+                textFile.getBirthday(),
+                textFile.getJoinedDate(),
+                db.allGoals(),
+                db.completedGoals(),
+                db.ongoingGoals());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

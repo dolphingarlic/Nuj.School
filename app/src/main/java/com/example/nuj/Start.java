@@ -23,6 +23,8 @@ public class Start extends AppCompatActivity {
 
     SharedPreferences sp;
 
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,35 @@ public class Start extends AppCompatActivity {
         final Context context = this;
         final ManageTextFile createUser = new ManageTextFile();
 
+        final Calendar myCalendar = Calendar.getInstance();
+
+        final EditText edittext = findViewById(R.id.Birthday);
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+
+            private void updateLabel() {
+                edittext.setText(sdf.format(myCalendar.getTime()));
+            }
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+        };
+
+        edittext.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                new DatePickerDialog(Start.this, date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
         // Creates the start button and allows it to be pressed
         btnStart = findViewById(R.id.btnStart);
 
@@ -56,7 +87,11 @@ public class Start extends AppCompatActivity {
                 startActivity(intent);
 
                 //stores all the user's info into a text file
-                createUser.saveInfo(getNameInput(), getBirthday(), getCurrentDate(), getApplicationContext());
+                createUser.saveInfo(
+                        getNameInput(),
+                        sdf.format(myCalendar.getTime()),
+                        sdf.format(getCurrentDate()),
+                        getApplicationContext());
 
                 // Edits the Shared preference to automatically log the user in when they launch the program again
                 sp.edit().putBoolean("logged",true).apply();
@@ -77,43 +112,6 @@ public class Start extends AppCompatActivity {
 
         // Returns the name that the user enters in the login screen
         return name;
-    }
-
-    public Date getBirthday(){
-        final Calendar myCalendar = Calendar.getInstance();
-
-        final EditText edittext= findViewById(R.id.Birthday);
-        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear,
-                                  int dayOfMonth) {
-                myCalendar.set(Calendar.YEAR, year);
-                myCalendar.set(Calendar.MONTH, monthOfYear);
-                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                updateLabel();
-            }
-
-            private void updateLabel() {
-                String myFormat = "yyyy/MM/dd";
-                SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
-
-                edittext.setText(sdf.format(myCalendar.getTime()));
-            }
-
-        };
-
-        edittext.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                new DatePickerDialog(Start.this, date, myCalendar
-                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
-                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
-            }
-        });
-
-        return myCalendar.getTime();
     }
 
     public Date getCurrentDate(){
