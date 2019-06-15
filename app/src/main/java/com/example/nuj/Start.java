@@ -27,17 +27,15 @@ public class Start extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        sp = getSharedPreferences("login",MODE_PRIVATE);
-
-        // Gives functionality to the Start button
-        addStartButton();
+        sp = this.getSharedPreferences("login", MODE_PRIVATE);
 
         // Automatically logs the user in and takes them to the home screen when they launch the program again
-        if(sp.getBoolean("logged",true)){
+        if (sp.getBoolean("logged",false)) {
             startActivity(new Intent(this, MainActivity.class));
         }
 
-
+        // Gives functionality to the Start button
+        addStartButton();
     }
 
     public void addStartButton() {

@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
         ManageTextFile textFile = new ManageTextFile();
         ManageDatabase db = new ManageDatabase(this);
-        List<Goal> goals = db.allGoals();
-        List<Goal> completed = db.completedGoals();
-        List<Goal> ongoing = db.ongoingGoals();
         User user = new User(textFile.getUserName(), textFile.getBirthday(), textFile.getJoinedDate(), db.allGoals(), db.completedGoals(), db.ongoingGoals());
 
         super.onCreate(savedInstanceState);

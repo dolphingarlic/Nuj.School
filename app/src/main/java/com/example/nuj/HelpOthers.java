@@ -17,8 +17,7 @@ public class HelpOthers extends AppCompatActivity {
 
     // Method linked to back button that takes user to home screen
     public void toHome(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 
     // Sends user to website for general help

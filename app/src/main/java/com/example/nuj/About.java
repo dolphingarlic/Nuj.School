@@ -13,16 +13,16 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_activity);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.container, AboutFragment.newInstance())
-                    .commitNow();
-        }
+        // TODO: Fix this if statement
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.container, AboutFragment.newInstance())
+//                    .commitNow();
+//        }
     }
 
     public void toHome(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 
     public void toAboutAnqi(View view){

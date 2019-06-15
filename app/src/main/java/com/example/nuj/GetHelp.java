@@ -14,7 +14,6 @@ public class GetHelp extends AppCompatActivity {
     }
 
     public void toHome(View view){
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        this.finish();
     }
 }
