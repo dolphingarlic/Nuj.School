@@ -26,8 +26,13 @@ public class TaskDBHelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
 
         db.execSQL(
-                "CREATE TABLE "+CONTACTS_TABLE_NAME +
-                        "(id INTEGER PRIMARY KEY, task TEXT, difficulty INT, startDate DATETIME, endDate DATETIME, completed BOOLEAN)"
+                "CREATE TABLE " + CONTACTS_TABLE_NAME +
+                        "(id INTEGER PRIMARY KEY," +
+                        "task TEXT," +
+                        "difficulty INT," +
+                        "startDate DATETIME," +
+                        "endDate DATETIME," +
+                        "completed BOOLEAN)"
         );
     }
 

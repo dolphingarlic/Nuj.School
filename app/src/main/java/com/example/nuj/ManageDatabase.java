@@ -36,9 +36,12 @@ public class ManageDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String CREATION_TABLE = "CREATE TABLE " + TABLE_NAME + " ( "
-                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_DESCRIPTION + "TEXT, "
-                + KEY_DIFFICULTY + "TINYINT, " + KEY_STARTDATE + " DATE, " + KEY_COMPLETED + "BOOLEAN) ";
-
+                                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                                + KEY_DESCRIPTION + " TEXT, "
+                                + KEY_DIFFICULTY + " TINYINT, "
+                                + KEY_STARTDATE + " DATE, "
+                                + KEY_COMPLETED + " BOOLEAN)";
+        System.out.println(CREATION_TABLE);
         db.execSQL(CREATION_TABLE);
     }
 
@@ -69,6 +72,16 @@ public class ManageDatabase extends SQLiteOpenHelper {
         db.close();
     }
 
+    public Goal newGoal(Cursor cursor) {
+        Goal goal = new Goal();
+        goal.setId(Integer.parseInt(cursor.getString(0)));
+        goal.setDescription(cursor.getString(1));
+        goal.setDifficulty(cursor.getInt(2));
+        goal.setStart(getDate(cursor.getString(3)));
+        goal.setCompleted(cursor.getInt(4) > 0);
+
+        return goal;
+    }
 
     public Goal getGoal(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -85,12 +98,8 @@ public class ManageDatabase extends SQLiteOpenHelper {
         if (cursor != null)
             cursor.moveToFirst();
 
-        Goal goal = new Goal();
-        goal.setId(Integer.parseInt(cursor.getString(0)));
-        goal.setDescription(cursor.getString(1));
-        goal.setDifficulty(cursor.getInt(2));
-        goal.setStart(getDate(cursor.getString(3)));
-        goal.setCompleted(cursor.getInt(4) > 0);
+        Goal goal = newGoal(cursor);
+
 
         return goal;
     }
@@ -102,16 +111,10 @@ public class ManageDatabase extends SQLiteOpenHelper {
         String query = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
-        Goal goal = null;
 
         if (cursor.moveToFirst()) {
             do {
-                goal = new Goal();
-                goal.setId(Integer.parseInt(cursor.getString(0)));
-                goal.setDescription(cursor.getString(1));
-                goal.setDifficulty(cursor.getInt(2));
-                goal.setStart(getDate(cursor.getString(3)));
-                goal.setCompleted(cursor.getInt(4) > 0);
+                Goal goal = newGoal(cursor);
                 goals.add(goal);
             } while (cursor.moveToNext());
         }
@@ -122,22 +125,19 @@ public class ManageDatabase extends SQLiteOpenHelper {
 
     public List<Goal> completedGoals() {
 
-        List<Goal> goals = new LinkedList<Goal>();
-        String query = "SELECT  * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = TRUE";
+        List<Goal> goals = new LinkedList<>();
+        String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = 1";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                Goal goal = new Goal();
-                goal.setId(Integer.parseInt(cursor.getString(0)));
-                goal.setDescription(cursor.getString(1));
-                goal.setDifficulty(cursor.getInt(2));
-                goal.setStart(getDate(cursor.getString(3)));
-                goal.setCompleted(cursor.getInt(4) > 0);
+                Goal goal = newGoal(cursor);
                 goals.add(goal);
             } while (cursor.moveToNext());
         }
+
+        cursor.close();
 
         return goals;
     }
@@ -145,19 +145,14 @@ public class ManageDatabase extends SQLiteOpenHelper {
 
     public List<Goal> ongoingGoals() {
 
-        List<Goal> goals = new LinkedList<Goal>();
-        String query = "SELECT  * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = FALSE";
+        List<Goal> goals = new LinkedList<>();
+        String query = "SELECT  * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = 0";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(query, null);
 
         if (cursor.moveToFirst()) {
             do {
-                Goal goal = new Goal();
-                goal.setId(Integer.parseInt(cursor.getString(0)));
-                goal.setDescription(cursor.getString(1));
-                goal.setDifficulty(cursor.getInt(2));
-                goal.setStart(getDate(cursor.getString(3)));
-                goal.setCompleted(cursor.getInt(4) > 0);
+                Goal goal = newGoal(cursor);
                 goals.add(goal);
             } while (cursor.moveToNext());
         }

@@ -13,6 +13,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnNewGoal;
@@ -25,15 +27,18 @@ public class MainActivity extends AppCompatActivity {
 
         ManageTextFile textFile = new ManageTextFile();
         ManageDatabase db = new ManageDatabase(this);
+        List<Goal> goals = db.allGoals();
+        List<Goal> completed = db.completedGoals();
+        List<Goal> ongoing = db.ongoingGoals();
         User user = new User(textFile.getUserName(), textFile.getBirthday(), textFile.getJoinedDate(), db.allGoals(), db.completedGoals(), db.ongoingGoals());
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnNewGoal = (ImageButton)findViewById(R.id.btnNewGoal);
-        btnHelpOthers = (ImageButton)findViewById(R.id.btnHelpOthers);
-        btnGetHelp = (ImageButton)findViewById(R.id.btnGetHelp);
-        btnAbout = (ImageButton)findViewById(R.id.btnAbout);
+        btnNewGoal = findViewById(R.id.btnNewGoal);
+        btnHelpOthers = findViewById(R.id.btnHelpOthers);
+        btnGetHelp = findViewById(R.id.btnGetHelp);
+        btnAbout = findViewById(R.id.btnAbout);
 
         btnNewGoal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){

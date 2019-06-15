@@ -33,7 +33,7 @@ public class Start extends AppCompatActivity {
         addStartButton();
 
         // Automatically logs the user in and takes them to the home screen when they launch the program again
-        if(sp.getBoolean("logged",false)){
+        if(sp.getBoolean("logged",true)){
             startActivity(new Intent(this, MainActivity.class));
         }
 

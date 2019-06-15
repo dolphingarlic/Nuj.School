@@ -1,5 +1,6 @@
 package com.example.nuj;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class User {
 
     private double average;
     private double deviation;
-    private int[] daysTaken;
+    private List<Integer> daysTaken;
 
     // Constructor method
     public User(String name, Date birthday, Date joinedDate, List<Goal> allGoals, List<Goal> completedGoals, List<Goal> ongoingGoals){
@@ -26,6 +27,7 @@ public class User {
         this.allGoals = allGoals;
         this.completedGoals = completedGoals;
         this.ongoingGoals = ongoingGoals;
+        this.daysTaken = new ArrayList<Integer>(); // TODO: Fix this mess of a daysTaken variable
         calculateAverage();
         calculateDeviation();
     }
@@ -34,31 +36,31 @@ public class User {
     public void calculateAverage(){
         double total = 0;
 
-        for(int i = 0 ; i < daysTaken.length; i++){
-            total = total + daysTaken[i];
+        for (Integer i : daysTaken){
+            total += i;
         }
 
-        average = total / daysTaken.length;
+        average = total / daysTaken.size();
     }
 
     // Method to calculate user's deviation from their average
     public void calculateDeviation(){
-            double sum = 0.0, standardDeviation = 0.0;
-            int length = daysTaken.length;
+        double sum = 0.0, standardDeviation = 0.0;
+        int length = daysTaken.size();
 
-            for(double num : daysTaken) {
-                sum += num;
-            }
-
-            double mean = sum/length;
-
-            for(double num: daysTaken) {
-                standardDeviation += Math.pow(num - mean, 2);
-            }
-
-            deviation = Math.sqrt(standardDeviation/length);
+        for(double num : daysTaken) {
+            sum += num;
         }
 
+        double mean = sum/length;
+
+        for(double num: daysTaken) {
+            standardDeviation += Math.pow(num - mean, 2);
+        }
+
+        deviation = Math.sqrt(standardDeviation/length);
     }
+
+}
 
 
