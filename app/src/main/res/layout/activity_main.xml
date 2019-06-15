@@ -17,7 +17,7 @@
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
         android:fillViewport="true"
-        app:layout_constraintBottom_toTopOf="@+id/newGoalButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewGoal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent">
@@ -37,12 +37,12 @@
     </android.support.v4.widget.NestedScrollView>
 
     <ImageButton
-        android:id="@+id/helpOthersButton"
-        android:layout_width="100dp"
+        android:id="@+id/btnHelpOthers"
+        android:layout_width="104dp"
         android:layout_height="100dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginLeft="72dp"
         android:layout_marginBottom="24dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp"
         android:background="@android:color/transparent"
         android:onClick="toHelpOthers"
         android:scaleType="fitCenter"
@@ -51,7 +51,7 @@
         app:srcCompat="@drawable/helpothersbutton" />
 
     <ImageButton
-        android:id="@+id/getHelpButton"
+        android:id="@+id/btnGetHelp"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginBottom="24dp"
@@ -68,12 +68,12 @@
         app:srcCompat="@drawable/gethelpbutton" />
 
     <ImageButton
-        android:id="@+id/aboutButton"
+        android:id="@+id/btnAbout"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginBottom="24dp"
         android:layout_marginEnd="72dp"
         android:layout_marginRight="72dp"
-        android:layout_marginBottom="24dp"
         android:background="@android:color/transparent"
         android:onClick="toAbout"
         android:scaleType="fitCenter"
@@ -82,7 +82,7 @@
         app:srcCompat="@drawable/aboutbutton" />
 
     <ImageButton
-        android:id="@+id/newGoalButton"
+        android:id="@+id/btnNewGoal"
         android:layout_width="316dp"
         android:layout_height="47dp"
         android:layout_marginStart="24dp"
@@ -94,23 +94,12 @@
         android:background="@android:color/transparent"
         android:cropToPadding="false"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/getHelpButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnGetHelp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/newgoalbutton"
         tools:scaleType="fitStart" />
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginBottom="24dp"
-        android:indeterminate="true"
-        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/logo_home"

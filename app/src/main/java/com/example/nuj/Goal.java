@@ -4,19 +4,30 @@ import java.util.Date;
 
 public class Goal {
 
+    private int id;
     private String description;
-    private int days;
     private int difficulty;
     private Date start;
-    private Date end;
     private boolean completed;
 
-    public Goal(String description, int days, int difficulty, Date end) {
+    // Constructor method
+    public Goal(String description, int difficulty, Date end) {
         this.description = description;
-        this.days = days;
         this.difficulty = difficulty;
         this.start = new Date();
-        this.end = end;
+    }
+
+    public Goal() {
+
+    }
+
+    // Getter and setter methods
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id){
+        this.id = id;
     }
 
     public String getDescription() {
@@ -25,14 +36,6 @@ public class Goal {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public int getDays() {
-        return days;
-    }
-
-    public void setDays(int days) {
-        this.days = days;
     }
 
     public int getDifficulty() {
@@ -51,15 +54,7 @@ public class Goal {
         this.start = start;
     }
 
-    public Date getEnd() {
-        return end;
-    }
-
-    public void setEnd(Date end) {
-        this.end = end;
-    }
-
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 

@@ -9,17 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutAnqi"></activity>
-        <activity android:name=".CatsEasterEgg" />
+        <activity android:name=".FaqPage" />
+        <activity android:name=".AboutAnqi" />
         <activity android:name=".Goals" />
         <activity android:name=".HelpOthers" />
         <activity android:name=".GetHelp" />
         <activity android:name=".Stats" />
         <activity android:name=".About" />
         <activity android:name=".MainActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".Start">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

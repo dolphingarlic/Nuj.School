@@ -1,73 +1,64 @@
 package com.example.nuj;
 
-
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.Date;
-
-import static android.content.Context.MODE_PRIVATE;
+import java.util.List;
 
 
 public class User {
 
-    private static final String NUJ_USER_TXT = "NujUser.txt";
-    EditText mEditText;
-
     private String name;
     private Date birthday;
-    private double averageWeeklyGoals;
-    Goal[] completedGoals;
-    Goal[] ongoingGoals;
-    private double deviation;
     private Date joinedDate;
 
+    private List<Goal> allGoals;
+    private List<Goal> completedGoals;
+    private List<Goal> ongoingGoals;
 
-    public User(String name, Date birthday) {
+    private double average;
+    private double deviation;
+    private int[] daysTaken;
+
+    // Constructor method
+    public User(String name, Date birthday, Date joinedDate, List<Goal> allGoals, List<Goal> completedGoals, List<Goal> ongoingGoals){
         this.name = name;
         this.birthday = birthday;
         this.joinedDate = new Date();
+        this.allGoals = allGoals;
+        this.completedGoals = completedGoals;
+        this.ongoingGoals = ongoingGoals;
+        calculateAverage();
+        calculateDeviation();
     }
 
-    public void saveInfo() {
-        String text = mEditText.getText().toString();
-        FileOutputStream fos = null;
+    // Method to calculate user's average
+    public void calculateAverage(){
+        double total = 0;
 
-        try {
-            fos = openFileOutput(NUJ_USER_TXT, MODE_PRIVATE);
-            fos.write(text.getBytes());
-
-            mEditText.getText().clear();
-            Toast.makeText(this, "Saved to " + getFilesDir() + "/" + NUJ_USER_TXT,
-                    Toast.LENGTH_LONG).show();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (fos != null) {
-                try {
-                    fos.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
+        for(int i = 0 ; i < daysTaken.length; i++){
+            total = total + daysTaken[i];
         }
+
+        average = total / daysTaken.length;
     }
 
-    public Date getJoinedDate() {
-        return joinedDate;
+    // Method to calculate user's deviation from their average
+    public void calculateDeviation(){
+            double sum = 0.0, standardDeviation = 0.0;
+            int length = daysTaken.length;
+
+            for(double num : daysTaken) {
+                sum += num;
+            }
+
+            double mean = sum/length;
+
+            for(double num: daysTaken) {
+                standardDeviation += Math.pow(num - mean, 2);
+            }
+
+            deviation = Math.sqrt(standardDeviation/length);
+        }
+
     }
 
-    public double getDeviation() {
-        return deviation;
-    }
 
-    public double getAverageWeeklyGoals(){
-        return averageWeeklyGoals;
-    }
-
-}
