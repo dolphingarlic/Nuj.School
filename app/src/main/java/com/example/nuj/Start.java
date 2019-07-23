@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,7 +19,7 @@ import java.util.Locale;
 
 public class Start extends AppCompatActivity {
 
-    private Button btnStart;
+    private ImageButton btnStart;
     private EditText nameInput;
 
     SharedPreferences sp;
