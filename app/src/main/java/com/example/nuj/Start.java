@@ -7,15 +7,17 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class Start extends AppCompatActivity {
 
@@ -83,10 +85,6 @@ public class Start extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                // Launches the home screen
-                Intent intent = new Intent(context, MainActivity.class);
-                startActivity(intent);
-
                 //stores all the user's info into a text file
                 createUser.saveInfo(
                         getNameInput(),
@@ -96,6 +94,11 @@ public class Start extends AppCompatActivity {
 
                 // Edits the Shared preference to automatically log the user in when they launch the program again
                 sp.edit().putBoolean("logged",true).apply();
+
+                // Launches the home screen
+                Intent intent = new Intent(context, MainActivity.class);
+                startActivity(intent);
+                finish();
 
             }
 

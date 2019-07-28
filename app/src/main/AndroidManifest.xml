@@ -6,24 +6,35 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FaqPage" />
-        <activity android:name=".AboutAnqi" />
-        <activity android:name=".Goals" />
-        <activity android:name=".HelpOthers" />
-        <activity android:name=".GetHelp" />
-        <activity android:name=".Stats" />
-        <activity android:name=".About" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".FaqPage"
+                android:screenOrientation="portrait" />
+        <activity android:name=".AboutAnqi"
+                android:screenOrientation="portrait" />
+        <activity android:name=".Goals"
+                android:screenOrientation="portrait" />
+        <activity android:name=".HelpOthers"
+                android:screenOrientation="portrait" />
+        <activity android:name=".GetHelp"
+                android:screenOrientation="portrait" />
+        <activity android:name=".Stats"
+                android:screenOrientation="portrait" />
+        <activity android:name=".About"
+                android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            >
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".Start">
+        <activity android:name=".Start"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
