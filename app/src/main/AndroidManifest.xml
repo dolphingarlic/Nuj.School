@@ -9,37 +9,52 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FaqPage"
-                android:screenOrientation="portrait" />
-        <activity android:name=".AboutAnqi"
-                android:screenOrientation="portrait" />
-        <activity android:name=".Goals"
-                android:screenOrientation="portrait" />
-        <activity android:name=".HelpOthers"
-                android:screenOrientation="portrait" />
-        <activity android:name=".GetHelp"
-                android:screenOrientation="portrait" />
-        <activity android:name=".Stats"
-                android:screenOrientation="portrait" />
-        <activity android:name=".About"
-                android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <activity android:name=".NewGoal"></activity>
+        <activity
+            android:name=".FaqPage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutAnqi"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Goals"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HelpOthers"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GetHelp"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Stats"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".About"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".Start"
-            android:screenOrientation="portrait"
-            >
+        <activity
+            android:name=".Start"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

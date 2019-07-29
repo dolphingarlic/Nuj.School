@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Instantiates a user object using the user's info stored in the text file
         ManageTextFile textFile = new ManageTextFile();
         textFile.readUserInfo(this);
         ManageDatabase db = new ManageDatabase(this);
@@ -42,28 +43,44 @@ public class MainActivity extends AppCompatActivity {
         btnGetHelp = findViewById(R.id.btnGetHelp);
         btnAbout = findViewById(R.id.btnAbout);
 
+        // Button click allows user to add a new goal
         btnNewGoal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
 
             }
         });
 
+        // Button click takes user to Help Others screen
         btnHelpOthers.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
                 toHelpOthers();
             }
         });
 
+        // Button click takes user to Get Help screen
+        btnGetHelp.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view){
+                toGetHelp();
+            }
+        });
+
+        // Button click takes user to About screen
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view){
+                toAbout();
+            }
+        });
+
     }
 
     // Links button to Get Help screen
-    public void toGetHelp(View view){
+    public void toGetHelp(){
         Intent intent = new Intent(this, GetHelp.class);
         startActivity(intent);
     }
 
     // Links button to About screen
-    public void toAbout(View view){
+    public void toAbout(){
         Intent intent = new Intent(this, About.class);
         startActivity(intent);
     }
@@ -74,6 +91,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    // Stops the user from navigating back to the login screen
+    @Override
+    public void onBackPressed() {
+    }
 
 }

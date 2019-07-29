@@ -23,7 +23,6 @@ public class Start extends AppCompatActivity {
 
     private ImageButton btnStart;
     private EditText nameInput;
-
     SharedPreferences sp;
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
@@ -46,10 +45,10 @@ public class Start extends AppCompatActivity {
     public void addStartButton() {
 
         final Context context = this;
-        final ManageTextFile createUser = new ManageTextFile();
-
+        final ManageTextFile createUser = new ManageTextFile(); // Allows the program to access the text file
         final Calendar myCalendar = Calendar.getInstance();
 
+        // Links the class to the GUI input
         final EditText edittext = findViewById(R.id.Birthday);
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
 
@@ -67,6 +66,7 @@ public class Start extends AppCompatActivity {
             }
         };
 
+        // Creates the pop-up calendar
         edittext.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -120,10 +120,8 @@ public class Start extends AppCompatActivity {
 
     public Date getCurrentDate(){
 
+        // Generates the current date
         Date currentDate = Calendar.getInstance().getTime();
-
-        // Generates the current date and converts it into a formatted String
-        //String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
 
         // Returns the current date as a String using the format "yyyy-MM-dd"
         return currentDate;
