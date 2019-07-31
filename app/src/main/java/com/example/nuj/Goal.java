@@ -11,7 +11,7 @@ public class Goal {
     private boolean completed;
 
     // Constructor method
-    public Goal(String description, int difficulty, Date end) {
+    public Goal(String description, int difficulty) {
         this.description = description;
         this.difficulty = difficulty;
         this.start = new Date();

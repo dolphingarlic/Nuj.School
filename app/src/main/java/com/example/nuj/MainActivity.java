@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnHelpOthers;
     private ImageButton btnGetHelp;
     private ImageButton btnAbout;
-    private TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // Button click allows user to add a new goal
         btnNewGoal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-
+                toNewGoal();
             }
         });
 
@@ -71,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // Links button to New Goal screen
+    public void toNewGoal(){
+        Intent intent = new Intent(this, NewGoal.class);
+        startActivity(intent);
     }
 
     // Links button to Get Help screen

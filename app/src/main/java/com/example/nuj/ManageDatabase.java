@@ -24,6 +24,7 @@ public class ManageDatabase extends SQLiteOpenHelper {
     private static final String KEY_DESCRIPTION = "Description";
     private static final String KEY_DIFFICULTY = "Difficulty";
     private static final String KEY_STARTDATE = "StartDate";
+    private static final String KEY_ENDDATE = "EndDate";
     private static final String KEY_COMPLETED = "Completed";
     private static final String[] COLUMNS = { KEY_ID, KEY_DESCRIPTION, KEY_DIFFICULTY,
             KEY_STARTDATE, KEY_COMPLETED };
@@ -40,6 +41,7 @@ public class ManageDatabase extends SQLiteOpenHelper {
                                 + KEY_DESCRIPTION + " TEXT, "
                                 + KEY_DIFFICULTY + " TINYINT, "
                                 + KEY_STARTDATE + " DATE, "
+                                + KEY_ENDDATE + " DATE, "
                                 + KEY_COMPLETED + " BOOLEAN)";
         System.out.println(CREATION_TABLE);
         db.execSQL(CREATION_TABLE);
