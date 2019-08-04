@@ -74,7 +74,7 @@
         android:editable="true"
         android:ems="10"
         android:hint="I want to..."
-        android:inputType="textLongMessage|textPersonName"
+        android:inputType="textLongMessage|textCapSentences"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/imageView2"
         app:layout_constraintHorizontal_bias="0.17"

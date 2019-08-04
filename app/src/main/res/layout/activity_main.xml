@@ -30,7 +30,8 @@
             android:orientation="vertical"
             tools:layout_marginBottom="8dp">
 
-            <android.support.v7.widget.RecyclerView
+            <ListView
+                android:id="@+id/list_ongoingGoals"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
@@ -41,13 +42,10 @@
         android:layout_width="104dp"
         android:layout_height="100dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginStart="72dp"
         android:background="@android:color/transparent"
-        android:onClick="toHelpOthers"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGetHelp"
         app:srcCompat="@drawable/helpothersbutton" />
 
     <ImageButton
@@ -58,7 +56,6 @@
         android:adjustViewBounds="false"
         android:background="@android:color/transparent"
         android:cropToPadding="false"
-        android:onClick="toGetHelp"
         android:scaleType="fitCenter"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -72,13 +69,10 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="24dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
         android:background="@android:color/transparent"
-        android:onClick="toAbout"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnGetHelp"
         app:srcCompat="@drawable/aboutbutton" />
 
     <ImageButton

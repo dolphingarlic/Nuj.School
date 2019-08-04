@@ -27,13 +27,12 @@ public class NewGoal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_goal);
 
-        addStartButton();
+        addGoalButton();
 
     }
 
-    public void addStartButton() {
+    public void addGoalButton() {
 
-        final Context context = this;
         final ManageDatabase addGoal = new ManageDatabase(this); // Allows the program to access the database
         final Calendar myCalendar = Calendar.getInstance();
 
@@ -42,6 +41,11 @@ public class NewGoal extends AppCompatActivity {
 
         // Creates the start button and allows it to be pressed
         btnAdd = findViewById(R.id.btnAdd);
+
+//        if (input.length() == 0) {
+//            Toast.makeText(getBaseContext(), "Description please!", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
 
@@ -71,6 +75,11 @@ public class NewGoal extends AppCompatActivity {
 
         // Stores the name that the user enters as a String
         String description = goalDescription.getText().toString();
+
+        if (description.length() == 0) {
+            Toast.makeText(getBaseContext(), "Description please!", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         // Returns the name that the user enters in the login screen
         return description;

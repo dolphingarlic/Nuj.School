@@ -97,17 +97,42 @@ public class ManageDatabase extends SQLiteOpenHelper {
                 null, // g. order by
                 null); // h. limit
 
-        if (cursor != null)
+        if (cursor != null) {
             cursor.moveToFirst();
+        }
 
         Goal goal = newGoal(cursor);
-
 
         return goal;
     }
 
 
-    public List<Goal> allGoals() {
+    public String getGoalDescription(int id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String output = null;
+        //Query the database
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[] {KEY_DESCRIPTION},
+                null,
+                new String[] { valueOf(id) },
+                null,
+                null,
+                null,
+                null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        int idx = cursor.getColumnIndex(KEY_DESCRIPTION);
+        output = cursor.getString(idx);
+
+        return output;
+
+    }
+
+    public List<Goal> getAllGoals() {
 
         List<Goal> goals = new LinkedList<Goal>();
         String query = "SELECT  * FROM " + TABLE_NAME;
@@ -125,7 +150,7 @@ public class ManageDatabase extends SQLiteOpenHelper {
     }
 
 
-    public List<Goal> completedGoals() {
+    public List<Goal> getCompletedGoals() {
 
         List<Goal> goals = new LinkedList<>();
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = 1";
@@ -145,7 +170,7 @@ public class ManageDatabase extends SQLiteOpenHelper {
     }
 
 
-    public List<Goal> ongoingGoals() {
+    public List<Goal> getOngoingGoals() {
 
         List<Goal> goals = new LinkedList<>();
         String query = "SELECT  * FROM " + TABLE_NAME + " WHERE " + KEY_COMPLETED + " = 0";
