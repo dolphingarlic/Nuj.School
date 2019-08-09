@@ -19,8 +19,10 @@ public class ManageTextFile {
     private Date birthday;
     private Date joinedDate;
 
+    //This is the text file that the user's info will be stored in
     private static final String NUJ_USER_TXT = "NujUser.txt";
 
+    //Getters for the fields
     public String getUserName() {
         return userName;
     }
@@ -33,6 +35,7 @@ public class ManageTextFile {
         return joinedDate;
     }
 
+    //Saves user info to the text file
     public void saveInfo(String name, String birthday, String joinedDate, Context ctx) {
 
         try {
@@ -46,6 +49,7 @@ public class ManageTextFile {
         }
     }
 
+    //Reads data from the text file and saves the data into the correct fields so that it can be accessed later by the program
     public void readUserInfo(Context ctx) {
 
         try {
@@ -64,6 +68,7 @@ public class ManageTextFile {
 
     }
 
+    //Gets the current date from the device which is used to save the date that the user joined
     private Date getDate(String day) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault());
         Date date = new Date();

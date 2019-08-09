@@ -21,14 +21,13 @@
         app:srcCompat="@drawable/logo" />
 
     <ImageButton
-        android:id="@+id/backButton_about"
+        android:id="@+id/btnBack"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="48dp"
         android:layout_marginRight="48dp"
         android:background="@android:color/transparent"
-        android:onClick="toHome"
         android:scaleType="fitCenter"
         android:src="@drawable/backbutton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +45,7 @@
         android:layout_marginBottom="8dp"
         android:scaleType="fitCenter"
         android:src="@drawable/aboutlabel"
-        app:layout_constraintBottom_toTopOf="@+id/FAQButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnFaq"
         app:layout_constraintEnd_toStartOf="@+id/logo_about"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +53,7 @@
         app:srcCompat="@drawable/aboutlabel" />
 
     <ImageButton
-        android:id="@+id/FAQButton"
+        android:id="@+id/btnFaq"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
@@ -65,12 +64,12 @@
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/faqs"
-        app:layout_constraintBottom_toTopOf="@+id/aboutNujButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnAboutNuj"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/aboutNujButton"
+        android:id="@+id/btnAboutNuj"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
@@ -81,13 +80,13 @@
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         android:src="@drawable/aboutnuj"
-        app:layout_constraintBottom_toTopOf="@+id/aboutAnqiButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnAboutAnqi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/aboutAnqiButton"
+        android:id="@+id/btnAboutAnqi"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginBottom="32dp"

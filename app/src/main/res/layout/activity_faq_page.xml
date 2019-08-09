@@ -1,68 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rootLayout"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".FaqPage">
 
-
-    <TextView
-        android:id="@+id/q1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="How does Nuj work?"
-        android:textColor="#000"></TextView>
-
-    <TextView
-        android:id="@+id/a1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text=""
-        android:textColor="#000"></TextView>
-
-    <TextView
-        android:id="@+id/q2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#000"></TextView>
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="346dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/faqs" />
 
     <TextView
-        android:id="@+id/a2"
-        android:layout_width="wrap_content"
+        android:id="@+id/txtExplanation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text=""
-        android:textColor="#000"></TextView>
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="Click on a question to view the answer"
+        android:textColor="@android:color/white"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:fontFamily="@font/quicksand_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
-        android:id="@+id/q3"
-        android:layout_width="wrap_content"
+        android:id="@+id/Q1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#000"></TextView>
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtExplanation" />
 
     <TextView
-        android:id="@+id/a3"
-        android:layout_width="wrap_content"
+        android:id="@+id/Q2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text=""
-        android:textColor="#000"></TextView>
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q1" />
 
     <TextView
-        android:id="@+id/q4"
-        android:layout_width="wrap_content"
+        android:id="@+id/Q3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text=""
-        android:textColor="#000"></TextView>
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q2" />
 
     <TextView
-        android:id="@+id/a4"
-        android:layout_width="wrap_content"
+        android:id="@+id/Q4"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        android:text=""
-        android:textColor="#000"></TextView>
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q3" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/Q5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:text="TextView"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp"
+        app:fontFamily="@font/montserrat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Q4" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/backbutton" />
+
+</android.support.constraint.ConstraintLayout>

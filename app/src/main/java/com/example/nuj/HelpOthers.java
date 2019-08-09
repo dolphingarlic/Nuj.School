@@ -15,6 +15,13 @@ public class HelpOthers extends AppCompatActivity {
         setContentView(R.layout.activity_help_others);
     }
 
+    // Method that launches browser and sends user to specific website
+    private void goToUrl (String url) {
+        Uri uriUrl = Uri.parse(url);
+        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+        startActivity(launchBrowser);
+    }
+
     // Method linked to back button that takes user to home screen
     public void toHome(View view){
         this.finish();
@@ -40,10 +47,4 @@ public class HelpOthers extends AppCompatActivity {
         goToUrl ( "https://www.helpguide.org/articles/eating-disorders/helping-someone-with-an-eating-disorder.htm");
     }
 
-    // Method that launches browser and sends user to specific website
-    private void goToUrl (String url) {
-        Uri uriUrl = Uri.parse(url);
-        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-        startActivity(launchBrowser);
-    }
 }

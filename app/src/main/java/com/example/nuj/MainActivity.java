@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // Set buttons to their corresponding views
+        // Links buttons to their corresponding views in the GUI
         btnNewGoal = findViewById(R.id.btnNewGoal);
         btnHelpOthers = findViewById(R.id.btnHelpOthers);
         btnGetHelp = findViewById(R.id.btnGetHelp);
