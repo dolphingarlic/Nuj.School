@@ -31,7 +31,7 @@
             tools:layout_marginBottom="8dp">
 
             <ListView
-                android:id="@+id/list_ongoingGoals"
+                android:id="@+id/goalsListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

@@ -22,6 +22,7 @@ public class NewGoal extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
+    //Builds the GUI of the NewGoal screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +35,6 @@ public class NewGoal extends AppCompatActivity {
     public void addGoalButton() {
 
         final ManageDatabase addGoal = new ManageDatabase(this); // Allows the program to access the database
-        final Calendar myCalendar = Calendar.getInstance();
-
-        // Links the class to the GUI input
-        final EditText goalDescription = findViewById(R.id.goalDescription);
 
         // Creates the start button and allows it to be pressed
         btnAdd = findViewById(R.id.btnAdd);
@@ -47,6 +44,7 @@ public class NewGoal extends AppCompatActivity {
 //            return;
 //        }
 
+        //updates the database once the + button is clicked
         btnAdd.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -57,7 +55,6 @@ public class NewGoal extends AppCompatActivity {
                         getGoalDescription(),
                         getDifficulty(),
                         sdf.format(getCurrentDate()));
-
 
                 // Goes back to the the home screen
                 finish();
@@ -78,7 +75,6 @@ public class NewGoal extends AppCompatActivity {
 
         if (description.length() == 0) {
             Toast.makeText(getBaseContext(), "Description please!", Toast.LENGTH_SHORT).show();
-            return;
         }
 
         // Returns the name that the user enters in the login screen

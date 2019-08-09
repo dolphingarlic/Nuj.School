@@ -8,12 +8,12 @@ import android.widget.ImageButton;
 
 public class About extends AppCompatActivity {
 
-    // Initialises the image buttons on screen
     private ImageButton btnFaq;
     private ImageButton btnAboutNuj;
     private ImageButton btnAboutAnqi;
     private ImageButton btnBack;
 
+    //Builds the GUI screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

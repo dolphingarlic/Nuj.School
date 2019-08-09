@@ -27,6 +27,7 @@ public class Start extends AppCompatActivity {
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd", Locale.US);
 
+    //Builds the GUI screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,10 +39,11 @@ public class Start extends AppCompatActivity {
             startActivity(new Intent(this, MainActivity.class));
         }
 
-        // Gives functionality to the Start button
+        //Calls the addStartButton() method to save user data and launch the home screen
         addStartButton();
     }
 
+    //This method codes for all the functionality of the start button
     public void addStartButton() {
 
         final Context context = this;
@@ -66,7 +68,7 @@ public class Start extends AppCompatActivity {
             }
         };
 
-        // Creates the pop-up calendar
+        // Creates the pop-up calendar where the user can pick their date of birth
         edittext.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -77,9 +79,10 @@ public class Start extends AppCompatActivity {
             }
         });
 
-        // Creates the start button and allows it to be pressed
+        //Links the Start button to the GUI
         btnStart = findViewById(R.id.btnStart);
 
+        //Saves the user's data and launches the home screen once the user presses the start button
         btnStart.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -106,6 +109,7 @@ public class Start extends AppCompatActivity {
 
     }
 
+    //Allows the user to enter their name in the text field
     public String getNameInput() {
 
         // Finds the editable text field component on the screen
@@ -118,6 +122,7 @@ public class Start extends AppCompatActivity {
         return name;
     }
 
+    //Gets the current date from the device
     public Date getCurrentDate(){
 
         // Generates the current date
@@ -126,8 +131,5 @@ public class Start extends AppCompatActivity {
         // Returns the current date as a String using the format "yyyy-MM-dd"
         return currentDate;
     }
-
-
-
 
 }
