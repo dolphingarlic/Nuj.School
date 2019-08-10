@@ -122,8 +122,8 @@ public class ManageDatabase extends SQLiteOpenHelper {
 
         String output = "";
 
-        System.out.println(cursor != null);
-        System.out.println(cursor.moveToFirst());
+//        System.out.println(cursor != null);
+//        System.out.println(cursor.moveToFirst());
         if (cursor != null && cursor.moveToFirst()) {
 //            System.out.println("Got here");
             int idx = cursor.getColumnIndex(KEY_DESCRIPTION);
